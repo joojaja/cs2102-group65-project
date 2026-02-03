@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS rider (
     rider_bib INT PRIMARY KEY,
     rider_name VARCHAR(64) NOT NULL,
     rider_dob DATE NOT NULL,
-    country_code CHAR(3),
+    country_code CHAR(3), -- possible for rider with no country data
     team_name VARCHAR(64) NOT NULL,
     FOREIGN KEY (country_code) REFERENCES country(country_code)
         ON UPDATE CASCADE,
@@ -78,6 +78,9 @@ CREATE TABLE IF NOT EXISTS exit (
         )),
     rider_bib INT NOT NULL,
     stage_number INT NOT NULL,
+    FOREIGN KEY (rider_bib) REFERENCES rider(rider_bib)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
     FOREIGN KEY (stage_number) REFERENCES stage(stage_number)
         ON UPDATE CASCADE,
     PRIMARY KEY (rider_bib)

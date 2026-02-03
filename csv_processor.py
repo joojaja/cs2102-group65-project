@@ -196,6 +196,17 @@ def process_additional(file, out):
   # write into a file
   write_text(out, sql)
 
+def fix_inconsistencies(out):
+  sql = read_text(out)
+  sql += f"\n--fix inconsistencies\n"
+  sql += f"INSERT INTO country VALUES({as_str("XXX")}, {as_str("UNKNOWN")}, {as_str("UNKNOWN")});\n"
+  sql += f"INSERT INTO team VALUES({as_str("UNKNOWN")}, {as_str("XXX")});\n"
+  sql += f"INSERT INTO rider VALUES(64, {as_str("UNKNOWN")}, {as_str("1900-01-01")}, {as_str("XXX")}, {as_str("UNKNOWN")});\n"
+  sql += f"INSERT INTO rider VALUES(154, {as_str("UNKNOWN")}, {as_str("1900-01-01")}, {as_str("XXX")}, {as_str("UNKNOWN")});\n"
+
+  write_text(out, sql)
+
 # Change the input filename and/or the output filename
 process_new('tdf-2025.csv', 'P01-data.sql')
+fix_inconsistencies('P01-data.sql')
 process_additional('tdf-exits.csv', 'P01-data.sql')

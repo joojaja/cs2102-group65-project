@@ -437,6 +437,12 @@ INSERT INTO result VALUES (14382, 0, 0, 180, 83, 1);
 INSERT INTO result VALUES (14382, 0, 0, 181, 92, 1);
 INSERT INTO result VALUES (14542, 0, 0, 182, 55, 1);
 
+--fix inconsistencies
+INSERT INTO country VALUES('XXX', 'UNKNOWN', 'UNKNOWN');
+INSERT INTO team VALUES('UNKNOWN', 'XXX');
+INSERT INTO rider VALUES(64, 'UNKNOWN', '1900-01-01', 'XXX', 'UNKNOWN');
+INSERT INTO rider VALUES(154, 'UNKNOWN', '1900-01-01', 'XXX', 'UNKNOWN');
+
 -- exit table
 INSERT INTO exit VALUES ('withdrawal', 64, 1);
 INSERT INTO exit VALUES ('withdrawal', 154, 1);
