@@ -201,8 +201,8 @@ def fix_inconsistencies(out):
   sql += f"\n--fix inconsistencies\n"
   sql += f"INSERT INTO country VALUES({as_str("XXX")}, {as_str("UNKNOWN")}, {as_str("UNKNOWN")});\n"
   sql += f"INSERT INTO team VALUES({as_str("UNKNOWN")}, {as_str("XXX")});\n"
-  sql += f"INSERT INTO rider VALUES(64, {as_str("UNKNOWN")}, {as_str("1900-01-01")}, {as_str("XXX")}, {as_str("UNKNOWN")});\n"
-  sql += f"INSERT INTO rider VALUES(154, {as_str("UNKNOWN")}, {as_str("1900-01-01")}, {as_str("XXX")}, {as_str("UNKNOWN")});\n"
+  sql += f"INSERT INTO rider VALUES(64, {as_str("UNKNOWN")}, {as_str("01/01/1900")}, {as_str("XXX")}, {as_str("UNKNOWN")});\n"
+  sql += f"INSERT INTO rider VALUES(154, {as_str("UNKNOWN")}, {as_str("01/01/1900")}, {as_str("XXX")}, {as_str("UNKNOWN")});\n"
 
   write_text(out, sql)
 
